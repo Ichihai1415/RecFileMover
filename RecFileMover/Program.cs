@@ -50,7 +50,7 @@ namespace RecFileMover
                         Console.ForegroundColor = c;
                         continue;
                     }
-                    string dir = $"{args[0]}\\{t:yyyy-MM-dd}\\".Replace("\\\\", "\\");
+                    string dir = $"{args[1]}\\{t:yyyy-MM-dd}\\".Replace("\\\\", "\\");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"{file} -> {dir}{fileN}");
                     Console.ForegroundColor = c;
