@@ -5,7 +5,7 @@ namespace RecFileMover
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args)//第1引数:移動元ディレクトリ 第2引数:移動先ディレクトリ 第3引数(以降):あれば確認なしに実行
         {
             try
             {
@@ -35,10 +35,13 @@ namespace RecFileMover
                 args[1] = args[1].Replace("\"", "");
                 Console.WriteLine("From:" + args[0]);
                 Console.WriteLine(" To :" + args[1]);
-                Console.WriteLine("移動してもよろしいですか?(y/n)");
-                string? ans = args.Length == 3 ? "y" : Console.ReadLine();
-                if (ans != "y")
-                    goto end;
+                if(args.Length == 2)
+                {
+                    Console.WriteLine("移動してもよろしいですか?(y/n)");
+                    string? ans = Console.ReadLine();
+                    if (ans != "y")
+                        goto end;
+                }
                 foreach (string file in Directory.EnumerateFiles(args[0], "*.mkv"))
                 {
                     string fileN = file.Replace($"{args[0]}\\", "").Replace($"{args[0]}", "");
